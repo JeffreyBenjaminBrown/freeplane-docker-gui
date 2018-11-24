@@ -1,0 +1,11 @@
+* Dockerfile requirements
+** The Dockerfile needs your gid and uid. Here's how to find them.
+** example: my uid and gid are both 1000
+*** evidence
+ jeff@jeff-inspiron-2017:~/docker-gui/firefox-example$ id -g jeff
+ 1000
+ jeff@jeff-inspiron-2017:~/docker-gui/firefox-example$ id -u jeff
+ 1000
+
+*** method source: https://kb.iu.edu/d/adwf
+* the example (firefox) that this is based on: https://medium.com/@mccode/understanding-how-uid-and-gid-work-in-docker-containers-c37a01d01cf
