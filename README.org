@@ -1,3 +1,17 @@
+* What this does
+Freeplane does not work in recent versions of Ubuntu. This lets you run it -- even though it's a GUI app! -- from within a Docker container.
+* How to build it
+docker build -t freeplane .
+(If somehow you already have a Docker image called freeplane, you'll probably want to use another name.)
+* How to use it
+** first, once, tell it where to find data
+In the file "run.sh", edit this line:
+       -v /home/jeff/docker-gui/freeplane/data:/home/developer \
+by replacing /home/jeff/docker-gui/ with the name of the folder you cloned this repo into. You'll only need to do that once.
+
+Now whenever you run it, it will have access to the freeplane/data/ folder. That folder is "mounted" to the folder /home/developer/ in the docker container. So if you save anything to /home/developer/ in the docker container, it will appear in your freeplane/data/ folder on your native machine. And if you want to open anything in Freeplane, it has to be in your native freeplane/data/ folder.
+** Then, every time you want to run Freeplane, run this from bash:
+       bash run.sh
 * Dockerfile requirements
 ** The Dockerfile needs your gid and uid. Here's how to find them.
 ** example: my uid and gid are both 1000
@@ -8,4 +22,4 @@
  1000
 
 *** method source: https://kb.iu.edu/d/adwf
-* the example (firefox) that this is based on: https://medium.com/@mccode/understanding-how-uid-and-gid-work-in-docker-containers-c37a01d01cf
+* the example (firefox) that this is based on: http://fabiorehm.com/blog/2014/09/11/running-gui-apps-with-docker/
