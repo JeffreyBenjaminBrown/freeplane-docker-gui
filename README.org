@@ -14,11 +14,14 @@ Now whenever you run it, it will have access to the freeplane/data/ folder. That
        bash run.sh
 * Dockerfile requirements
 ** The Dockerfile needs your gid and uid. Here's how to find them.
-** example: my uid and gid are both 1000
-*** evidence
+My username is `jeff`. So here's how I found that my uid and gid are both 1000.
+
  jeff@jeff-inspiron-2017:~/docker-gui/firefox-example$ id -g jeff
+
  1000
+
  jeff@jeff-inspiron-2017:~/docker-gui/firefox-example$ id -u jeff
+
  1000
 
 *** method source: https://kb.iu.edu/d/adwf
